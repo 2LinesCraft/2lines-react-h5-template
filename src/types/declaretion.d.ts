@@ -1,1 +1,1 @@
-declare module 'umi-hd';
+declare module 'umi-hd'

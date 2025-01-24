@@ -1,8 +1,8 @@
-import { createBrowserRouter } from 'react-router-dom';
-import { ErrorFallback } from '../components/ErrorFallback';
-import Layout from '../components/Layout';
-import About from '../pages/About';
-import Home from '../pages/Home';
+import { createBrowserRouter } from 'react-router-dom'
+import { ErrorFallback } from '../components/ErrorFallback'
+import Layout from '../components/Layout'
+import About from '../pages/About'
+import Home from '../pages/Home'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +21,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+])
 
-export default router;
+export default router

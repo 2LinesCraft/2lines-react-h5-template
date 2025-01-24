@@ -41,10 +41,25 @@ const baseConfig = {
   },
   rules: {
     ...airbnbStyleGuide.rules,
+    // React 相关
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/require-default-props': 'off',
+    'react/prop-types': 'off',
+    
+    // Import 相关
     'import/prefer-default-export': 'off',
-    'max-len': ['error', { code: 120 }],
+    'import/no-extraneous-dependencies': 'off',
+    
+    // 代码风格
+    'max-len': 'off',
+    'no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+    'no-console': 'warn',
+    'no-debugger': 'warn',
+    
+    // 其他
+    'arrow-body-style': 'off',
+    'no-param-reassign': 'off',
   },
 };
 
@@ -83,13 +98,18 @@ const typeScriptConfig = {
     ...baseConfig.rules,
     ...airbnbTypeScript.rules,
     ...typescriptPlugin.configs.recommended.rules,
-    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    // TypeScript 特定规则
+    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
   },
 };
 
 export default [
   {
-    ignores: ['dist/**/*', 'node_modules/**/*'],
+    ignores: ['dist/**/*', 'node_modules/**/*', '**/*.d.ts'],
   },
   {
     files: ['**/*.js', '**/*.jsx', '**/*.cjs', '**/*.mjs'],

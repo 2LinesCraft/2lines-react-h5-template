@@ -1,8 +1,8 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import { Outlet, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion'
+import { Outlet, useLocation } from 'react-router-dom'
 
 const Layout = () => {
-  const location = useLocation();
+  const location = useLocation()
 
   return (
     <div className="min-h-screen overflow-hidden">
@@ -17,7 +17,7 @@ const Layout = () => {
               transition={{
                 duration: 0.25,
                 ease: [0.32, 0.72, 0, 1],
-                opacity: { duration: 0.15 }
+                opacity: { duration: 0.15 },
               }}
               className="absolute inset-0 p-4 overflow-y-auto"
               style={{
@@ -30,7 +30,7 @@ const Layout = () => {
         </div>
       </main>
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

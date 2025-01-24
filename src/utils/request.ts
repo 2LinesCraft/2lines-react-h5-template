@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 
 // 请求配置
 const config = {
@@ -8,121 +8,121 @@ const config = {
   timeout: 10000,
   // 请求头
   headers: {
-    'Content-Type': 'application/json'
-  }
-};
+    'Content-Type': 'application/json',
+  },
+}
 
 // 创建axios实例
-const service: AxiosInstance = axios.create(config);
+const service: AxiosInstance = axios.create(config)
 
 // 请求拦截器
 service.interceptors.request.use(
-  (config) => {
+  config => {
     // 从localStorage获取token
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token')
     if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`;
+      config.headers['Authorization'] = `Bearer ${token}`
     }
-    return config;
+    return config
   },
-  (error) => {
-    console.error('请求错误：', error);
-    return Promise.reject(error);
+  error => {
+    console.error('请求错误：', error)
+    return Promise.reject(error)
   }
-);
+)
 
 // 响应拦截器
 service.interceptors.response.use(
   (response: AxiosResponse) => {
-    const res = response.data;
-    
+    const res = response.data
+
     // 这里可以根据后端的数据结构进行调整
     if (res.code === 200) {
-      return res.data;
+      return res.data
     }
-    
+
     // 处理特定错误码
     if (res.code === 401) {
       // token过期或未登录
-      localStorage.removeItem('token');
-      window.location.href = '/login';
-      return Promise.reject(new Error('未登录或登录过期'));
+      localStorage.removeItem('token')
+      window.location.href = '/login'
+      return Promise.reject(new Error('未登录或登录过期'))
     }
-    
+
     // 其他错误
-    console.error('接口错误：', res.message);
-    return Promise.reject(new Error(res.message || '未知错误'));
+    console.error('接口错误：', res.message)
+    return Promise.reject(new Error(res.message || '未知错误'))
   },
-  (error) => {
-    let message = '网络错误';
-    
+  error => {
+    let message = '网络错误'
+
     if (error.response) {
       switch (error.response.status) {
         case 400:
-          message = '请求错误';
-          break;
+          message = '请求错误'
+          break
         case 401:
-          message = '未授权，请登录';
-          localStorage.removeItem('token');
-          window.location.href = '/login';
-          break;
+          message = '未授权，请登录'
+          localStorage.removeItem('token')
+          window.location.href = '/login'
+          break
         case 403:
-          message = '拒绝访问';
-          break;
+          message = '拒绝访问'
+          break
         case 404:
-          message = '请求地址不存在';
-          break;
+          message = '请求地址不存在'
+          break
         case 408:
-          message = '请求超时';
-          break;
+          message = '请求超时'
+          break
         case 500:
-          message = '服务器内部错误';
-          break;
+          message = '服务器内部错误'
+          break
         case 501:
-          message = '服务未实现';
-          break;
+          message = '服务未实现'
+          break
         case 502:
-          message = '网关错误';
-          break;
+          message = '网关错误'
+          break
         case 503:
-          message = '服务不可用';
-          break;
+          message = '服务不可用'
+          break
         case 504:
-          message = '网关超时';
-          break;
+          message = '网关超时'
+          break
         case 505:
-          message = 'HTTP版本不受支持';
-          break;
+          message = 'HTTP版本不受支持'
+          break
         default:
-          message = `连接错误${error.response.status}`;
+          message = `连接错误${error.response.status}`
       }
     } else if (error.message.includes('timeout')) {
-      message = '请求超时';
+      message = '请求超时'
     }
-    
-    console.error('请求错误：', message);
-    return Promise.reject(error);
+
+    console.error('请求错误：', message)
+    return Promise.reject(error)
   }
-);
+)
 
 // 封装GET请求
 export function get<T>(url: string, params?: any, config: AxiosRequestConfig = {}): Promise<T> {
-  return service.get(url, { params, ...config });
+  return service.get(url, { params, ...config })
 }
 
 // 封装POST请求
 export function post<T>(url: string, data?: any, config: AxiosRequestConfig = {}): Promise<T> {
-  return service.post(url, data, config);
+  return service.post(url, data, config)
 }
 
 // 封装PUT请求
 export function put<T>(url: string, data?: any, config: AxiosRequestConfig = {}): Promise<T> {
-  return service.put(url, data, config);
+  return service.put(url, data, config)
 }
 
 // 封装DELETE请求
 export function del<T>(url: string, config: AxiosRequestConfig = {}): Promise<T> {
-  return service.delete(url, config);
+  return service.delete(url, config)
 }
 
-export default service;
+export default service

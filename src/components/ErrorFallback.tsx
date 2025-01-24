@@ -1,25 +1,21 @@
-import { useRouteError } from 'react-router-dom';
+import { useRouteError } from 'react-router-dom'
 
 export function ErrorFallback() {
   // 尝试获取路由错误
-  const routeError = useRouteError();
+  const routeError = useRouteError()
 
   // 使用路由错误或传入的错误
-  const errorMessage = routeError
-    ? (routeError as Error).message
-    : '未知错误';
+  const errorMessage = routeError ? (routeError as Error).message : '未知错误'
 
   const handleReset = () => {
-    window.location.href = '/';
-  };
+    window.location.href = '/'
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <div className="max-w-md w-full space-y-6">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">
-            抱歉，出现了一些问题
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">抱歉，出现了一些问题</h2>
           <p className="text-gray-600 mb-6">
             我们正在努力修复这个问题。您可以尝试刷新页面或返回首页。
           </p>
@@ -49,5 +45,5 @@ export function ErrorFallback() {
         </div>
       </div>
     </div>
-  );
+  )
 }
