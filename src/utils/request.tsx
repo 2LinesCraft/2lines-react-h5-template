@@ -34,11 +34,12 @@ service.interceptors.request.use(
 // 响应拦截器
 service.interceptors.response.use(
   (response: AxiosResponse) => {
+    // MSW 和实际接口返回的数据直接返回
     const res = response.data
 
     // 这里可以根据后端的数据结构进行调整
     if (res.code === 200) {
-      return res.data
+      return res
     }
 
     // 处理特定错误码

@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import { ErrorFallback } from '../components/ErrorFallback'
 import Layout from '../components/Layout'
 import About from '../pages/About'
-import Home from '../pages/Home'
+import Home from '../pages/home/Home'
 
 const router = createBrowserRouter([
   {

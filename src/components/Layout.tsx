@@ -19,7 +19,7 @@ const Layout = () => {
                 ease: [0.32, 0.72, 0, 1],
                 opacity: { duration: 0.15 },
               }}
-              className="absolute inset-0 p-4 overflow-y-auto"
+              className="absolute inset-0 overflow-y-auto"
               style={{
                 willChange: 'transform, opacity',
               }}
