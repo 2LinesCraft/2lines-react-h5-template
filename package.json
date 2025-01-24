@@ -10,7 +10,18 @@
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,css,less,scss,json,md}\"",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,less,scss,json,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@csstools/normalize.css": "^12.1.1",
@@ -49,7 +60,9 @@
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.1.0",
     "globals": "^15.14.0",
+    "husky": "^9.1.7",
     "less": "^4.2.2",
+    "lint-staged": "^15.4.2",
     "postcss": "^8.5.1",
     "prettier": "^3.4.2",
     "tailwindcss": "^4.0.0",
