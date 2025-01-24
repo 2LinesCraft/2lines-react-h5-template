@@ -1,12 +1,13 @@
 # 2Lines H5 Template / H5 模板
 
 A modern mobile-first H5 application template built with React, TypeScript, and TailwindCSS.
+
 基于 React、TypeScript 和 TailwindCSS 构建的现代化移动端优先的 H5 应用模板。
 
 ## Features / 特性
 
 - 🚀 Vite 4.x + React 18 + TypeScript 5
-- 🎨 TailwindCSS 3.x for utility-first styling / TailwindCSS 原子化 CSS
+- 🎨 TailwindCSS 3.x for utility-first styling / 原子化 CSS 样式
 - 📱 Mobile-first responsive design / 移动端优先的响应式设计
 - 🔧 PostCSS + pxtorem for mobile adaptation / PostCSS + pxtorem 移动端适配
 - 🎭 Framer Motion for smooth page transitions / Framer Motion 页面过渡动画
@@ -15,8 +16,13 @@ A modern mobile-first H5 application template built with React, TypeScript, and 
 - 🌐 Axios for API requests with interceptors / 封装 Axios 请求
 - 🔄 SPA routing with animations / 单页应用路由与动画
 - 🎯 Error Boundary for graceful error handling / 优雅的错误处理
+- 🔍 MSW (Mock Service Worker) for API mocking / MSW 接口模拟
+- 🎁 Ahooks for common React hooks / Ahooks React Hooks 工具库
+- 💫 Tailwind animations and transitions / Tailwind 动画与过渡效果
 
 ## Quick Start / 快速开始
+
+### Installation / 安装
 
 ```bash
 # Clone the repository / 克隆仓库
@@ -25,93 +31,157 @@ git clone https://github.com/yourusername/2lines-h5-template.git
 # Enter the project directory / 进入项目目录
 cd 2lines-h5-template
 
-# Install dependencies / 安装依赖
-npm install
+# Install dependencies with pnpm / 使用 pnpm 安装依赖
+pnpm install
+```
 
+### Development Commands / 开发命令
+
+```bash
 # Start development server / 启动开发服务器
-npm run dev
+pnpm run dev
 
 # Build for production / 生产环境构建
-npm run build
+pnpm run build
 
 # Preview production build / 预览生产构建
-npm run preview
+pnpm run preview
+
+# Lint code / 代码检查
+pnpm run lint
+
+# Fix lint errors / 修复代码检查错误
+pnpm run lint:fix
+
+# Format code / 格式化代码
+pnpm run format
+
+# Type check / 类型检查
+pnpm run type-check
 ```
 
 ## Project Structure / 项目结构
 
 ```
 src/
-  ├── api/             # API 接口定义
-  │   └── test.ts      # 测试接口示例
-  ├── assets/          # 静态资源
-  ├── components/      # 公共组件
-  │   ├── ErrorFallback.tsx  # 错误边界回退组件
-  │   └── Layout.tsx         # 布局组件（含页面切换动画）
-  ├── hooks/           # 自定义 Hooks
-  ├── pages/          # 页面组件
-  │   ├── Home.tsx    # 首页
-  │   └── About.tsx   # 关于页面
-  ├── router/         # 路由配置
-  │   └── index.tsx   # 路由定义
-  ├── store/          # Redux 状态管理
-  │   ├── index.ts    # Store 配置
-  │   └── reducers/   # Redux Slice
-  ├── types/          # TypeScript 类型定义
-  ├── utils/          # 工具函数
-  │   └── request.ts  # Axios 请求封装
-  ├── App.tsx         # 应用入口
-  └── main.tsx        # 主入口文件
+  ├── api/             # API interfaces / 接口定义
+  ├── assets/          # Static assets / 静态资源
+  ├── components/      # Shared components / 公共组件
+  │   ├── ErrorFallback.tsx  # Error boundary fallback / 错误边界回退组件
+  │   └── Layout.tsx         # Layout with transitions / 布局组件（含过渡动画）
+  ├── hooks/           # Custom React hooks / 自定义 Hooks
+  ├── mocks/           # MSW mock handlers / MSW 接口模拟
+  ├── pages/           # Page components / 页面组件
+  ├── router/          # Route configuration / 路由配置
+  ├── services/        # API services / 接口服务
+  ├── store/           # Redux store / Redux 状态管理
+  ├── types/           # TypeScript types / TypeScript 类型定义
+  ├── utils/           # Utility functions / 工具函数
+  ├── App.tsx          # Application root / 应用根组件
+  └── main.tsx         # Entry point / 入口文件
 ```
 
 ## Key Features / 核心功能
 
-### Page Transitions / 页面切换
+### Mobile-First Design / 移动端优先设计
 
-- Smooth page transitions using Framer Motion
-- Configurable animation parameters
-- Maintains scroll position during transitions
-- 使用 Framer Motion 实现流畅的页面切换
-- 可配置的动画参数
-- 过渡期间保持滚动位置
+The template emphasizes mobile-first development with:
+
+模板强调移动端优先的开发理念：
+
+- Responsive design using Tailwind breakpoints
+- Touch-friendly interactions
+- Mobile-optimized components
+- Performance optimization for mobile devices
+
+- 使用 Tailwind 断点的响应式设计
+- 触摸友好的交互
+- 移动端优化的组件
+- 移动设备性能优化
+
+### Mock Service Worker / 接口模拟
+
+Built-in API mocking solution with MSW:
+
+内置 MSW 接口模拟解决方案：
+
+- Intercepts network requests during development
+- Provides realistic API simulation
+- Helps with offline development
+- Seamless integration with actual APIs
+
+- 开发过程中拦截网络请求
+- 提供真实的 API 模拟
+- 支持离线开发
+- 与实际 API 无缝集成
 
 ### State Management / 状态管理
 
-- Redux Toolkit for efficient state management
+Comprehensive state management solution:
+
+完整的状态管理解决方案：
+
+- Redux Toolkit for efficient state updates
 - Redux Persist for state persistence
-- Modular store structure with slices
-- Redux Toolkit 高效状态管理
+- Type-safe actions and reducers
+- DevTools integration
+
+- Redux Toolkit 高效状态更新
 - Redux Persist 状态持久化
-- 基于切片的模块化存储结构
-
-### Mobile Adaptation / 移动端适配
-
-The template uses `postcss-pxtorem` for mobile adaptation. The root font size is set to 37.5px (based on 375px design).
-模板使用 `postcss-pxtorem` 进行移动端适配。根字体大小设置为 37.5px（基于 375px 设计稿）。
+- 类型安全的 actions 和 reducers
+- 开发工具集成
 
 ### Error Handling / 错误处理
 
-- Global error boundary for React errors
-- Axios interceptors for API errors
-- Custom error UI components
-- React 错误边界全局处理
-- Axios 拦截器处理接口错误
-- 自定义错误 UI 组件
+Robust error handling strategy:
 
-## Development Guide / 开发指南
+健壮的错误处理策略：
+
+- Global error boundary
+- API error interceptors
+- Custom error UI
+- Development error logging
+
+- 全局错误边界
+- API 错误拦截器
+- 自定义错误 UI
+- 开发环境错误日志
+
+## Best Practices / 最佳实践
 
 ### Code Style / 代码风格
 
-- ESLint for code linting / ESLint 代码检查
-- Prettier for code formatting / Prettier 代码格式化
-- TypeScript strict mode enabled / TypeScript 严格模式
+We follow these coding standards:
 
-### Performance Optimization / 性能优化
+我们遵循以下代码标准：
 
-- Route-based code splitting / 基于路由的代码分割
-- Vite's built-in optimization / Vite 内置优化
-- Gzip compression / Gzip 压缩
-- Assets optimization / 资源优化
+- ESLint for code quality
+- Prettier for consistent formatting
+- TypeScript strict mode
+- Import sorting and organization
+
+- ESLint 保证代码质量
+- Prettier 统一代码格式
+- TypeScript 严格模式
+- 导入排序和组织
+
+### Performance / 性能优化
+
+Optimizations include:
+
+优化措施包括：
+
+- Route-based code splitting
+- Image optimization
+- Lazy loading
+- Caching strategies
+- Gzip compression
+
+- 基于路由的代码分割
+- 图片优化
+- 懒加载
+- 缓存策略
+- Gzip 压缩
 
 ## Browser Support / 浏览器支持
 
@@ -123,7 +193,19 @@ The template uses `postcss-pxtorem` for mobile adaptation. The root font size is
 
 ## Contributing / 贡献
 
-Feel free to open issues and pull requests / 欢迎提 Issue 和 PR
+We welcome contributions! Please feel free to:
+
+我们欢迎各种形式的贡献！欢迎：
+
+- Open issues for bugs or suggestions
+- Submit pull requests
+- Improve documentation
+- Share your ideas
+
+- 提交 bug 或建议
+- 提交代码改进
+- 改进文档
+- 分享想法
 
 ## License / 许可证
 
