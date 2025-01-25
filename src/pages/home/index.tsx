@@ -1,3 +1,4 @@
+import Empty from '@/components/empty'
 import Loading from '@/components/loading'
 import { productApi } from '@/services'
 import { useRequest } from 'ahooks'
@@ -65,12 +66,18 @@ const Home: React.FC = () => {
 
         {/* 商品列表 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {loading && (
+          {loading ? (
             <div className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4">
               <Loading />
             </div>
-          )}
-          {!loading &&
+          ) : productList.length === 0 ? (
+            <Empty
+              type="data"
+              className="min-h-[400px]"
+              title="暂无商品"
+              description="敬请期待更多商品上架"
+            />
+          ) : (
             productList.map(product => (
               <div
                 key={product.id}
@@ -95,7 +102,8 @@ const Home: React.FC = () => {
                   </div>
                 </div>
               </div>
-            ))}
+            ))
+          )}
         </div>
       </main>
 
