@@ -1,1 +1,27 @@
 @import 'tailwindcss';
+
+.page-enter {
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    opacity 150ms,
+    transform 250ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition:
+    opacity 150ms,
+    transform 250ms;
+}

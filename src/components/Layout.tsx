@@ -1,41 +1,25 @@
-import { AnimatePresence, motion } from 'framer-motion'
-import { Outlet, useLocation } from 'react-router-dom'
-
-const pageVariants = {
-  initial: { opacity: 0, x: 10 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -10 },
-}
-
-const pageTransition = {
-  duration: 0.25,
-  ease: [0.32, 0.72, 0, 1],
-  opacity: { duration: 0.15 },
-}
+import { useLocation, useOutlet } from 'react-router-dom'
+import { CSSTransition, SwitchTransition } from 'react-transition-group'
 
 const Layout = () => {
   const location = useLocation()
+  const currentOutlet = useOutlet()
 
   return (
     <div className="min-h-screen overflow-hidden">
       <main className="h-screen">
         <div className="relative h-full">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
+          <SwitchTransition mode="out-in">
+            <CSSTransition
               key={location.pathname}
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={pageTransition}
-              className="absolute inset-0 overflow-y-auto"
-              style={{
-                willChange: 'transform, opacity',
-              }}
+              classNames="page"
+              timeout={250}
+              appear={true}
+              unmountOnExit
             >
-              <Outlet />
-            </motion.div>
-          </AnimatePresence>
+              <div className="absolute inset-0 overflow-y-auto">{currentOutlet}</div>
+            </CSSTransition>
+          </SwitchTransition>
         </div>
       </main>
     </div>

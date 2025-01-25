@@ -1,13 +1,12 @@
 import { productApi } from '@/services'
 import { useRequest } from 'ahooks'
-import { useCallback, useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useMemo } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { setUserInfo } from '../../store/reducers/userSlice'
 
-const Home = () => {
+const Home: React.FC = () => {
   const dispatch = useDispatch()
-  const isFirstMount = useRef(true)
 
   const {
     data,
@@ -15,24 +14,23 @@ const Home = () => {
     run: fetchProductList,
   } = useRequest(() => productApi.getProducts({ page: 1, pageSize: 10 }), {
     manual: true,
+    onSuccess: () => {
+      console.log('数据请求成功')
+    },
   })
-
-  const handleFetchProducts = useCallback(() => {
-    if (isFirstMount.current) {
-      console.log('fetchProductList')
-      fetchProductList()
-      isFirstMount.current = false
-    }
-  }, [fetchProductList])
-
-  useEffect(() => {
-    console.log('handleFetchProducts')
-    handleFetchProducts()
-  }, [handleFetchProducts])
 
   const handleLogin = useCallback(() => {
     dispatch(setUserInfo({ name: 'Test User', avatar: '' }))
   }, [dispatch])
+
+  const productList = useMemo(() => {
+    return data?.data || []
+  }, [data])
+
+  useEffect(() => {
+    console.log('进入 useEffect')
+    fetchProductList()
+  }, []) // 空依赖数组，仅在组件挂载时执行一次
 
   if (loading) {
     return (
@@ -74,7 +72,7 @@ const Home = () => {
 
         {/* 商品列表 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {data?.data?.map(product => (
+          {productList.map(product => (
             <div
               key={product.id}
               className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"

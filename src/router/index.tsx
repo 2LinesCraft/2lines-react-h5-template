@@ -3,6 +3,7 @@ import { ErrorFallback } from '../components/ErrorFallback'
 import Layout from '../components/Layout'
 import About from '../pages/About'
 import Home from '../pages/home/Home'
+import NotFound from '../pages/NotFound'
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: 'about',
         element: <About />,
+      },
+      {
+        path: '*',
+        element: <NotFound />,
       },
     ],
   },
