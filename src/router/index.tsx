@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { ErrorFallback } from '../components/ErrorFallback'
-import Layout from '../components/Layout'
-import About from '../pages/About'
-import Home from '../pages/home/Home'
-import NotFound from '../pages/NotFound'
+import { ErrorFallback } from '../components/error-fallback'
+import Layout from '../components/layout'
+import About from '../pages/about'
+import Home from '../pages/home'
+import NotFound from '../pages/not-found'
 
 const router = createBrowserRouter([
   {

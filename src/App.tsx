@@ -1,10 +1,10 @@
-import { RouterProvider } from 'react-router-dom'
-import { Provider } from 'react-redux'
-import { PersistGate } from 'redux-persist/integration/react'
-import { store, persistor } from './store'
-import router from './router'
 import { ErrorBoundary } from 'react-error-boundary'
-import { ErrorFallback } from './components/ErrorFallback'
+import { Provider } from 'react-redux'
+import { RouterProvider } from 'react-router-dom'
+import { PersistGate } from 'redux-persist/integration/react'
+import { ErrorFallback } from './components/error-fallback'
+import router from './router'
+import { persistor, store } from './store'
 
 function App() {
   const handleReset = () => {
