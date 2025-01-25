@@ -19,6 +19,8 @@ A modern mobile-first H5 application template built with React, TypeScript, and 
 - 🔍 MSW (Mock Service Worker) for API mocking / MSW 接口模拟
 - 🎁 Ahooks for common React hooks / Ahooks React Hooks 工具库
 - 💫 Tailwind animations and transitions / Tailwind 动画与过渡效果
+- 🔄 Loading component with customizable styles / 可定制的加载状态组件
+- 🖼️ Empty state component with beautiful SVG illustrations / 精美的空状态组件
 
 ## Quick Start / 快速开始
 
@@ -68,7 +70,9 @@ src/
   ├── assets/          # Static assets / 静态资源
   ├── components/      # Shared components / 公共组件
   │   ├── ErrorFallback.tsx  # Error boundary fallback / 错误边界回退组件
-  │   └── Layout.tsx         # Layout with transitions / 布局组件（含过渡动画）
+  │   ├── Layout.tsx         # Layout with transitions / 布局组件（含过渡动画）
+  │   ├── loading.tsx        # Loading component / 加载状态组件
+  │   └── empty/            # Empty state components / 空状态组件
   ├── hooks/           # Custom React hooks / 自定义 Hooks
   ├── mocks/           # MSW mock handlers / MSW 接口模拟
   ├── pages/           # Page components / 页面组件
@@ -99,89 +103,35 @@ The template emphasizes mobile-first development with:
 - 移动端优化的组件
 - 移动设备性能优化
 
-### Mock Service / 接口模拟
+### Common Components / 通用组件
 
-This project uses [vite-plugin-mock](https://github.com/vbenjs/vite-plugin-mock) for API mocking during development.
+The template includes several commonly used components:
 
-本项目使用 [vite-plugin-mock](https://github.com/vbenjs/vite-plugin-mock) 进行开发环境的接口模拟。
+模板包含多个常用组件：
 
-### Mock Configuration / Mock 配置
+- Loading component with customizable styles and animations
+- Empty state component with various scenarios and beautiful SVG illustrations
+- Error boundary component for graceful error handling
+- Layout component with page transitions
 
-Mock files are located in the `mock` directory. Each mock file should export an array of mock objects with the following structure:
-
-Mock 文件位于 `mock` 目录下。每个 mock 文件需要导出一个包含以下结构的 mock 对象数组：
-
-```typescript
-{
-  url: string // API URL / 接口地址
-  method: string // HTTP method / HTTP 方法
-  response: () => any // Response data / 响应数据
-}
-```
-
-Example / 示例：
-
-```typescript
-export default [
-  {
-    url: '/api/user',
-    method: 'get',
-    response: () => ({
-      code: 0,
-      data: {
-        name: '张三',
-        age: 18,
-      },
-    }),
-  },
-]
-```
-
-### Usage / 使用方法
-
-Mock service is automatically enabled in development mode. You can make API requests to the mock endpoints directly:
-
-Mock 服务在开发环境下自动启用。你可以直接请求 mock 接口：
-
-```typescript
-import axios from 'axios'
-
-// The request will be intercepted by the mock service
-// 请求会被 mock 服务拦截
-const response = await axios.get('/api/user')
-```
+- 可定制样式和动画的加载状态组件
+- 支持多种场景的精美空状态组件
+- 优雅的错误处理边界组件
+- 带页面过渡效果的布局组件
 
 ### State Management / 状态管理
 
-Comprehensive state management solution:
+A complete state management solution:
 
 完整的状态管理解决方案：
 
 - Redux Toolkit for efficient state updates
 - Redux Persist for state persistence
 - Type-safe actions and reducers
-- DevTools integration
 
-- Redux Toolkit 高效状态更新
-- Redux Persist 状态持久化
+- 使用 Redux Toolkit 进行高效的状态更新
+- 使用 Redux Persist 实现状态持久化
 - 类型安全的 actions 和 reducers
-- 开发工具集成
-
-### Error Handling / 错误处理
-
-Robust error handling strategy:
-
-健壮的错误处理策略：
-
-- Global error boundary
-- API error interceptors
-- Custom error UI
-- Development error logging
-
-- 全局错误边界
-- API 错误拦截器
-- 自定义错误 UI
-- 开发环境错误日志
 
 ## Best Practices / 最佳实践
 
