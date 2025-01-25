@@ -1,3 +1,4 @@
+import Loading from '@/components/loading'
 import { productApi } from '@/services'
 import { useRequest } from 'ahooks'
 import React, { useCallback, useEffect, useMemo } from 'react'
@@ -32,14 +33,6 @@ const Home: React.FC = () => {
     fetchProductList()
   }, []) // 空依赖数组，仅在组件挂载时执行一次
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-      </div>
-    )
-  }
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* 顶部导航栏 */}
@@ -72,31 +65,37 @@ const Home: React.FC = () => {
 
         {/* 商品列表 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {productList.map(product => (
-            <div
-              key={product.id}
-              className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
-            >
-              <div className="relative overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-blue-500 transition-colors">
-                  {product.name}
-                </h3>
-                <div className="flex justify-between items-center">
-                  <p className="text-red-500 font-medium">¥{product.price.toFixed(2)}</p>
-                  <button className="text-sm text-blue-500 hover:text-blue-600 font-medium">
-                    查看详情
-                  </button>
+          {loading && (
+            <div className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4">
+              <Loading />
+            </div>
+          )}
+          {!loading &&
+            productList.map(product => (
+              <div
+                key={product.id}
+                className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
+              >
+                <div className="relative overflow-hidden">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-blue-500 transition-colors">
+                    {product.name}
+                  </h3>
+                  <div className="flex justify-between items-center">
+                    <p className="text-red-500 font-medium">¥{product.price.toFixed(2)}</p>
+                    <button className="text-sm text-blue-500 hover:text-blue-600 font-medium">
+                      查看详情
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </main>
 

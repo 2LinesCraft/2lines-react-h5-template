@@ -18,6 +18,7 @@ export default [
   {
     url: '/api/products',
     method: 'get',
+    timeout: 5000,
     response: () => {
       return {
         code: 200,
