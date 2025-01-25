@@ -1,12 +1,13 @@
 import { productApi } from '@/services'
 import { useRequest } from 'ahooks'
-import { useEffect } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { setUserInfo } from '../../store/reducers/userSlice'
 
 const Home = () => {
   const dispatch = useDispatch()
+  const isFirstMount = useRef(true)
 
   const {
     data,
@@ -16,13 +17,22 @@ const Home = () => {
     manual: true,
   })
 
-  useEffect(() => {
-    fetchProductList()
+  const handleFetchProducts = useCallback(() => {
+    if (isFirstMount.current) {
+      console.log('fetchProductList')
+      fetchProductList()
+      isFirstMount.current = false
+    }
   }, [fetchProductList])
 
-  const handleLogin = () => {
+  useEffect(() => {
+    console.log('handleFetchProducts')
+    handleFetchProducts()
+  }, [handleFetchProducts])
+
+  const handleLogin = useCallback(() => {
     dispatch(setUserInfo({ name: 'Test User', avatar: '' }))
-  }
+  }, [dispatch])
 
   if (loading) {
     return (

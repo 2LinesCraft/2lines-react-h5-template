@@ -99,21 +99,57 @@ The template emphasizes mobile-first development with:
 - 移动端优化的组件
 - 移动设备性能优化
 
-### Mock Service Worker / 接口模拟
+### Mock Service / 接口模拟
 
-Built-in API mocking solution with MSW:
+This project uses [vite-plugin-mock](https://github.com/vbenjs/vite-plugin-mock) for API mocking during development.
 
-内置 MSW 接口模拟解决方案：
+本项目使用 [vite-plugin-mock](https://github.com/vbenjs/vite-plugin-mock) 进行开发环境的接口模拟。
 
-- Intercepts network requests during development
-- Provides realistic API simulation
-- Helps with offline development
-- Seamless integration with actual APIs
+### Mock Configuration / Mock 配置
 
-- 开发过程中拦截网络请求
-- 提供真实的 API 模拟
-- 支持离线开发
-- 与实际 API 无缝集成
+Mock files are located in the `mock` directory. Each mock file should export an array of mock objects with the following structure:
+
+Mock 文件位于 `mock` 目录下。每个 mock 文件需要导出一个包含以下结构的 mock 对象数组：
+
+```typescript
+{
+  url: string // API URL / 接口地址
+  method: string // HTTP method / HTTP 方法
+  response: () => any // Response data / 响应数据
+}
+```
+
+Example / 示例：
+
+```typescript
+export default [
+  {
+    url: '/api/user',
+    method: 'get',
+    response: () => ({
+      code: 0,
+      data: {
+        name: '张三',
+        age: 18,
+      },
+    }),
+  },
+]
+```
+
+### Usage / 使用方法
+
+Mock service is automatically enabled in development mode. You can make API requests to the mock endpoints directly:
+
+Mock 服务在开发环境下自动启用。你可以直接请求 mock 接口：
+
+```typescript
+import axios from 'axios'
+
+// The request will be intercepted by the mock service
+// 请求会被 mock 服务拦截
+const response = await axios.get('/api/user')
+```
 
 ### State Management / 状态管理
 
