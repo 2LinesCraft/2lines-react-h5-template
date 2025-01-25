@@ -3,3 +3,29 @@
 3. 该项目主要服务于移动端的项目，所以在处理一些业务逻辑时应该充分考虑移动端的场景，以及移动端的一些交互问题，考虑不同设备之间的兼容性
 4. 该项目作为移动端H5 页面开发的脚手架，每次新增或变更一些特性时，需要及时进行 README.md 文档的更新
 5. 对于一些项目中常见的使用场景，比如数据 mock，图片处理，IconFont，react hook 编写等等，优先寻找第三方成熟插件，其次再考虑自行实现该功能
+6. 每次当我输入“git commit suggestions”时，都需要更具以下的 prompt，结合 git staged 中的所有改动文件，给出参考的提交信息，提示词如下：
+    ```
+    格式：
+    <type>(<scope>): <subject>
+
+    <body>
+
+    <footer>
+
+    其中 subject 必填，body 和 footer 可选
+
+    type: feat|fix|docs|style|refactor|test|chore|perf
+    scope: 可选，表示影响范围（如模块名）
+    subject: 简明扼要的提交说明
+    body: 详细描述，可多行
+    footer: 通常用于关联 Issue 或破坏性变更说明
+
+    示例：
+    feat(auth): 添加微信登录功能
+
+    - 支持微信扫码登录
+    - 支持微信账号绑定
+    - 添加微信用户信息同步
+
+    Closes #123
+    ```

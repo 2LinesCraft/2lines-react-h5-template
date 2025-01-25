@@ -10,7 +10,7 @@ export default [
         data: {
           id: 1,
           name: '张三',
-          avatar: 'https://picsum.photos/200/300?random=1',
+          avatar: '/picsum.photos/200/300?random=1',
         },
       }
     },
@@ -26,25 +26,25 @@ export default [
             id: 1,
             name: '商品1',
             price: 99.99,
-            image: 'https://picsum.photos/400/300?random=1',
+            image: '/picsum.photos/400/300?random=1',
           },
           {
             id: 2,
             name: '商品2',
             price: 199.99,
-            image: 'https://picsum.photos/400/300?random=2',
+            image: '/picsum.photos/400/300?random=2',
           },
           {
             id: 3,
             name: '商品3',
             price: 299.99,
-            image: 'https://picsum.photos/400/300?random=3',
+            image: '/picsum.photos/400/300?random=3',
           },
           {
             id: 4,
             name: '商品4',
             price: 399.99,
-            image: 'https://picsum.photos/400/300?random=4',
+            image: '/picsum.photos/400/300?random=4',
           },
         ],
       }
