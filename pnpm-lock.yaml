@@ -65,6 +65,9 @@ dependencies:
   vite-plugin-compression:
     specifier: ^0.5.1
     version: 0.5.1(vite@6.0.11)
+  weixin-js-sdk:
+    specifier: ^1.6.5
+    version: 1.6.5
 
 devDependencies:
   '@types/node':
@@ -4965,6 +4968,10 @@ packages:
       terser: 5.37.0
     optionalDependencies:
       fsevents: 2.3.3
+
+  /weixin-js-sdk@1.6.5:
+    resolution: {integrity: sha512-Gph1WAWB2YN/lMOFB/ymb+hbU/wYazzJgu6PMMktCy9cSCeW5wA6Zwt0dpahJbJ+RJEwtTv2x9iIu0U4enuVSQ==}
+    dev: false
 
   /which-boxed-primitive@1.1.1:
     resolution: {integrity: sha512-TbX3mj8n0odCBFVlY8AxkqcHASw3L60jIuF8jFP78az3C2YhmGvqbHBpAjTRH2/xqYunrJ9g1jSyjCjpoWzIAA==}

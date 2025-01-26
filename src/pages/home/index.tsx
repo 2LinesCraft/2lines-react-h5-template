@@ -34,6 +34,21 @@ const Home: React.FC = () => {
     fetchProductList()
   }, []) // 空依赖数组，仅在组件挂载时执行一次
 
+  //  useEffect(() => {
+  //    initWxShare({
+  //      title: '分享标题',
+  //      desc: '分享描述',
+  //      link: window.location.href,
+  //      imgUrl: '分享图片地址',
+  //      success: () => {
+  //        console.log('分享成功')
+  //      },
+  //      cancel: () => {
+  //        console.log('取消分享')
+  //      },
+  //    })
+  //  }, [])
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* 顶部导航栏 */}
