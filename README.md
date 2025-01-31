@@ -26,6 +26,26 @@ A modern mobile-first H5 application template built with React, TypeScript, and 
 - 📱 Safe area and device compatibility / 安全区域和设备兼容性适配
 - 🔒 Secure and optimized build configuration / 安全且优化的构建配置
 
+## Testing / 测试
+
+```bash
+# 运行所有测试
+pnpm test
+
+# 执行测试并生成覆盖率报告
+pnpm test:coverage
+
+# 启动交互式测试界面
+pnpm test:ui
+```
+
+### 测试特性
+
+- 🧪 Vitest 作为测试运行器
+- 📊 代码覆盖率报告
+- 🌐 支持 React 组件测试
+- 📦 开箱即用的测试配置
+
 ## Quick Start / 快速开始
 
 ### Installation / 安装
