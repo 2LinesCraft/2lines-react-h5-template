@@ -21,6 +21,10 @@ A modern mobile-first H5 application template built with React, TypeScript, and 
 - 💫 Tailwind animations and transitions / Tailwind 动画与过渡效果
 - 🔄 Loading component with customizable styles / 可定制的加载状态组件
 - 🖼️ Empty state component with beautiful SVG illustrations / 精美的空状态组件
+- 🌍 Legacy browser compatibility / 旧浏览器兼容性支持
+- 🚄 Performance optimization for mobile devices / 移动设备性能优化
+- 📱 Safe area and device compatibility / 安全区域和设备兼容性适配
+- 🔒 Secure and optimized build configuration / 安全且优化的构建配置
 
 ## Quick Start / 快速开始
 

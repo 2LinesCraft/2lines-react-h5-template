@@ -1,3 +1,4 @@
+import legacy from '@vitejs/plugin-legacy'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
@@ -11,6 +12,18 @@ export default defineConfig({
     viteMockServe({
       mockPath: 'mock',
       enable: true,
+    }),
+    legacy({
+      targets: ['defaults', 'not IE 11', 'chrome >= 49', 'ios >= 10'],
+      additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
+      renderLegacyChunks: true,
+      polyfills: [
+        'es.promise',
+        'es.symbol',
+        'es.array.iterator',
+        'es.object.assign',
+        'es.promise.finally',
+      ],
     }),
     viteCompression({
       verbose: true,
