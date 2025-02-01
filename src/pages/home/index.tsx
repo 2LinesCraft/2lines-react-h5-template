@@ -37,7 +37,7 @@ const Home: React.FC = () => {
     <div className="min-h-screen bg-gray-50">
       <nav className="bg-white shadow-sm sticky top-0 z-10">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-          <h1 className="text-xl font-bold text-gray-800">2Lines H5 Template</h1>
+          <h1 className="text-xl font-bold text-gray-800">2Lines React H5 Template</h1>
           <div className="flex items-center space-x-4">
             <Link to="/about" className="text-gray-600 hover:text-blue-500 transition-colors">
               关于
@@ -104,7 +104,7 @@ const Home: React.FC = () => {
 
       <footer className="bg-white border-t mt-12 py-8">
         <div className="container mx-auto px-4 text-center text-gray-600">
-          <p> 2025 2Lines Template. </p>
+          <p> Copyright © 2025 2Lines </p>
         </div>
       </footer>
     </div>

@@ -1,4 +1,4 @@
-# 2Lines H5 Template / H5 模板
+# 2lines-react-h5-template / React H5 模板
 
 A modern mobile-first H5 application template built with React, TypeScript, and TailwindCSS.
 
