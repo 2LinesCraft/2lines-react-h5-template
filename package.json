@@ -1,5 +1,13 @@
 {
   "name": "2lines-react-h5-template",
+  "description": "A modern mobile-first H5 application template built with React, TypeScript, and TailwindCSS.",
+  "author": "leecoocie@gmail.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2LinesCraft/2lines-react-h5-template",
+    "issues": "https://github.com/2LinesCraft/2lines-react-h5-template/issues"
+  },
   "private": true,
   "version": "0.0.0",
   "type": "module",
