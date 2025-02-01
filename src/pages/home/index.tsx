@@ -30,28 +30,11 @@ const Home: React.FC = () => {
   }, [data])
 
   useEffect(() => {
-    console.log('进入 useEffect')
     fetchProductList()
-  }, []) // 空依赖数组，仅在组件挂载时执行一次
-
-  //  useEffect(() => {
-  //    initWxShare({
-  //      title: '分享标题',
-  //      desc: '分享描述',
-  //      link: window.location.href,
-  //      imgUrl: '分享图片地址',
-  //      success: () => {
-  //        console.log('分享成功')
-  //      },
-  //      cancel: () => {
-  //        console.log('取消分享')
-  //      },
-  //    })
-  //  }, [])
+  }, [])
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* 顶部导航栏 */}
       <nav className="bg-white shadow-sm sticky top-0 z-10">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
           <h1 className="text-xl font-bold text-gray-800">2Lines H5 Template</h1>
@@ -69,9 +52,7 @@ const Home: React.FC = () => {
         </div>
       </nav>
 
-      {/* 主要内容区 */}
       <main className="container mx-auto px-4 py-8">
-        {/* 头部区域 */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">探索精选产品展示</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -79,7 +60,6 @@ const Home: React.FC = () => {
           </p>
         </div>
 
-        {/* 商品列表 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {loading ? (
             <div className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4">
@@ -122,7 +102,6 @@ const Home: React.FC = () => {
         </div>
       </main>
 
-      {/* 底部信息 */}
       <footer className="bg-white border-t mt-12 py-8">
         <div className="container mx-auto px-4 text-center text-gray-600">
           <p> 2025 2Lines Template. </p>
